@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Resume Enhancement Results</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Aesthetic Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f0f4f8, #e3e9f0);
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            background: #ffffff;
+            padding: 40px;
+            max-width: 950px;
+            margin: auto;
+            border-radius: 16px;
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+        }
+        h1 {
+            color: #1a202c;
+            text-align: center;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #2d3748;
+            margin-top: 30px;
+            border-bottom: 2px solid #edf2f7;
+            padding-bottom: 8px;
+        }
+        p, li {
+            color: #4a5568;
+            line-height: 1.6;
+            font-size: 15px;
+        }
+        p.message {
+            color: #2f855a;
+            font-weight: 600;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        .highlight {
+            background-color: #fffbea;
+            border-left: 4px solid #ecc94b;
+            padding: 12px;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+        .resume-line {
+            margin: 12px 0;
+            padding: 12px 16px;
+            background: #f7fafc;
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
+        .resume-line:hover {
+            background: #edf2f7;
+        }
+        .resume-line.suggestion {
+            background-color: #fff5eb;
+            border-left: 4px solid #ed8936;
+        }
+        .btn-group {
+            margin-top: 40px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .btn-group a, .btn-group button {
+            text-decoration: none;
+            padding: 12px 24px;
+            background-color: #3182ce;
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .btn-group a:hover, .btn-group button:hover {
+            background-color: #2b6cb0;
+        }
+        small {
+            color: #718096;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Resume Enhancement Results</h1>
+
+    {% if message %}
+        <h2>Parsing Result</h2>
+        <p class="message">{{ message }}</p>
+        <div class="btn-group">
+            <a href="{{ url_for('main.resume_enhancer') }}">Back to Resume Enhancer</a>
+            <a href="{{ url_for('main.dashboard') }}">Back to Dashboard</a>
+        </div>
+    {% else %}
+        <h2>Overall ATS Score</h2>
+        <p><strong>{{ total_score }}%</strong></p>
+        <p>This score reflects how well your resume aligns with the job description for ATS compatibility.</p>
+
+        <h2>Score Breakdown</h2>
+        <ul>
+            <li>Skill Match: {{ skill_match_score }}%</li>
+            <li>Experience Alignment: {{ experience_score }}%</li>
+            <li>Section Structure: {{ section_score }}%</li>
+            <li>Formatting: {{ formatting_score }}%</li>
+            <li>Job Title Match: {{ job_title_score }}%</li>
+            <li>Keyword Density: {{ keyword_density_score }}%</li>
+            <li>File Format: {{ file_format_score }}%</li>
+        </ul>
+
+        <h2>Matched Keywords</h2>
+        <p>{{ matched_keywords | join(', ') if matched_keywords else 'None' }}</p>
+
+        <h2>Missing Keywords</h2>
+        <p>{{ missing_keywords | join(', ') if missing_keywords else 'None' }}</p>
+
+        <h2>Matched Skills</h2>
+        <p>{{ matched_skills | join(', ') if matched_skills else 'None' }}</p>
+
+     
+
+        <h2>Recommendations for Improvement</h2>
+        <ul>
+            {% for rec in recommendations %}
+                <li>{{ rec }}</li>
+            {% endfor %}
+        </ul>
+
+        <h2>Score Explanations</h2>
+        <ul>
+            <li><strong>Skill Match:</strong> Percentage of job-required skills present in your resume.</li>
+            <li><strong>Experience:</strong> Alignment of your work history with the job description.</li>
+            <li><strong>Section Structure:</strong> Presence of ATS-friendly sections like Skills, Education, and Work Experience.</li>
+            <li><strong>Formatting:</strong> Layout, readability, and use of standard fonts/margins.</li>
+            <li><strong>Job Title Match:</strong> Whether your listed job titles match the target job title.</li>
+            <li><strong>Keyword Density:</strong> Balanced use of keywords (not too few or too many).</li>
+            <li><strong>File Format:</strong> Whether the resume format is ATS-readable (e.g., PDF/DOCX).</li>
+        </ul>
+
+        <h2>Resume Preview</h2>
+        
+
+        {% if resume_text %}
+            {% set title_keywords = ['full stack', 'software engineer'] %}
+            {% set section_headers = ['header', 'professional summary', 'skills', 'professional experience', 'education', 'certifications'] %}
+            {% set current_section = '' %}
+            {% for line in resume_text.split('\n') %}
+                {% if line.strip() %}
+                    {% set line_lower = line.lower() | replace('  ', ' ') | trim %}
+                    {% if line_lower in section_headers or line_lower.startswith('-' * 3) %}
+                        {% set current_section = line_lower %}
+                    {% endif %}
+                    {% set is_compatible = True %}
+                    {% set missing_in_line = [] %}
+                    {% if current_section in ['header', 'professional summary', 'resume - john doe'] %}
+                        {% for keyword in missing_keywords %}
+                            {% if keyword.lower() in title_keywords and keyword.lower() not in line_lower %}
+                                {% set missing_in_line = missing_in_line + [keyword] %}
+                                {% set is_compatible = False %}
+                            {% endif %}
+                        {% endfor %}
+                    {% else %}
+                        {% for skill in missing_skills %}
+                            {% if skill.lower() not in line_lower %}
+                                {% set missing_in_line = missing_in_line + [skill] %}
+                                {% set is_compatible = False %}
+                            {% endif %}
+                        {% endfor %}
+                        {% for keyword in missing_keywords %}
+                            {% if keyword.lower() not in title_keywords and keyword.lower() not in line_lower %}
+                                {% set missing_in_line = missing_in_line + [keyword] %}
+                                {% set is_compatible = False %}
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                    {% if not is_compatible and missing_in_line %}
+                        <div class="resume-line suggestion">
+                            ✅ {{ line | safe }} <br>
+                            <small><em>Add: {{ missing_in_line | join(', ') }}</em></small>
+                        </div>
+                    {% else %}
+                        <div class="resume-line">{{ line | safe }}</div>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            <p>No resume text available. Please re-upload your resume to receive feedback.</p>
+        {% endif %}
+
+        
+
+        <div class="btn-group">
+            <a href="{{ url_for('main.resume_enhancer') }}">Back to Resume Enhancer</a>
+            <a href="{{ url_for('main.dashboard') }}">Back to Home</a>
+            
+        </div>
+    {% endif %}
+</div>
+</body>
+</html>

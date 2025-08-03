@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cover Letter Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cover_letter_generator.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Cover Letter Generator</h1>
+        <p>Create a tailored cover letter for your job application</p>
+    </header>
+    <main>
+        {% if error_message %}
+        <div class="error">{{ error_message }}</div>
+        {% endif %}
+        <form method="POST" action="/cover-letter-generator" class="form-container">
+            <div class="form-group">
+                <h3>Your Information</h3>
+                {% for field in ['applicant_name', 'address', 'phone', 'email', 'job_title', 'company', 'recruiter', 'company_address'] %}
+                <label for="{{ field }}">{{ field.replace('_', ' ').title() }}</label>
+                <input type="text" id="{{ field }}" name="{{ field }}" value="{{ form_data[field] }}">
+                {% endfor %}
+                <label for="experience">Work Experience</label>
+                <textarea id="experience" name="experience" rows="5">{{ form_data.experience }}</textarea>
+                <label for="skills">Skills</label>
+                <textarea id="skills" name="skills" rows="5">{{ form_data.skills }}</textarea>
+                <label for="template_choice">Template Style</label>
+                <select id="template_choice" name="template_choice">
+                    {% for style in template_styles %}
+                    <option value="{{ style }}" {% if form_data.template_choice == style %}selected{% endif %}>{{ style }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-actions">
+                <button type="submit" name="action" value="generate" class="button">Generate Cover Letter</button>
+                {% if session.letter_body %}
+                <button type="submit" name="action" value="change_style" class="button">Change Template</button>
+                {% endif %}
+            </div>
+        </form>
+        <p><a href="/" class="back-link">Back to Home</a></p>
+    </main>
+</body>
+</html>

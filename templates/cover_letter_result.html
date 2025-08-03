@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cover Letter Result</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: #f4f7fa;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .letter {
+            background-color: #fdfdfd;
+            padding: 20px;
+            border-left: 5px solid #007BFF;
+            border-radius: 5px;
+            white-space: pre-wrap;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #007BFF;
+            color: #fff;
+            font-weight: bold;
+            text-decoration: none;
+            border: none;
+            border-radius: 6px;
+            transition: background-color 0.3s ease;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+
+        .back-links {
+            margin-top: 20px;
+        }
+
+        .back-links a {
+            color: #007BFF;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .back-links a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 22px;
+            }
+
+            .letter {
+                font-size: 15px;
+            }
+
+            .button {
+                width: 100%;
+                text-align: center;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Your Cover Letter ({{ form_data.template_choice }} Style)</h1>
+
+        <div class="letter">{{ styled_letter }}</div>
+
+        <a href="/download/{{ form_data.template_choice }}" class="button">Download as PDF</a>
+        <button class="button" onclick="window.location.href='{{ url_for('main.dashboard') }}'">Back to Home</button>
+
+        <div class="back-links">
+            <p><a href="/cover-letter-generator">← Back to Cover Letter Generator</a></p>
+        </div>
+    </div>
+</body>
+</html>

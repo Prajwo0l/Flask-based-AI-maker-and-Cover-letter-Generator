@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Your Resume</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .preview { margin-top: 20px; }
+        .error { color: red; }
+        .form-container { margin-bottom: 20px; }
+        button { margin: 5px; padding: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Edit Your Resume</h1>
+
+<div class="form-container">
+    <form method="POST" action="{{ url_for('main.download') }}">
+        <label>Select Format:</label>
+        <select name="format">
+            <option value="pdf">PDF</option>
+            <option value="docx">DOCX</option>
+        </select>
+        <button type="submit">Download Resume</button>
+
+        <a href="{{ url_for('main.cover_letter_form') }}">
+            <button type="button">Generate Cover Letter</button>
+        </a>
+
+        <!-- Back to Home button -->
+        <button type="button" onclick="window.location.href='{{ url_for('main.dashboard') }}'">Back to Home</button>
+    </form>
+</div>
+
+
+    <div class="preview">
+        <h2>Preview</h2>
+        {% if previews and previews.template %}
+            {{ previews.template|safe }}
+        {% else %}
+            <p>No preview available. Please ensure all fields are filled correctly.</p>
+        {% endif %}
+    </div>
+
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+</body>
+</html>

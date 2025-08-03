@@ -1,0 +1,207 @@
+2025-07-25 12:19:49,712 - INFO - _internal - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-25 12:19:49,718 - INFO - _internal - [33mPress CTRL+C to quit[0m
+2025-07-25 12:19:49,735 - INFO - _internal -  * Restarting with stat
+2025-07-25 12:20:32,274 - WARNING - _internal -  * Debugger is active!
+2025-07-25 12:20:32,302 - INFO - _internal -  * Debugger PIN: 978-289-098
+2025-07-25 12:20:33,520 - INFO - _internal - 127.0.0.1 - - [25/Jul/2025 12:20:33] "GET / HTTP/1.1" 200 -
+2025-07-25 12:20:33,525 - INFO - _internal - 127.0.0.1 - - [25/Jul/2025 12:20:33] "GET / HTTP/1.1" 200 -
+2025-07-25 12:20:36,487 - INFO - _internal - 127.0.0.1 - - [25/Jul/2025 12:20:36] "GET /resume-enhancer HTTP/1.1" 200 -
+2025-07-25 12:20:51,176 - INFO - routes - Extracted resume text: Header
+------
+Resume - John Doe
+John Doe
+Email: john.doe@example.com | Phone: (123) 456-7890 | Linke...
+2025-07-25 12:21:43,224 - INFO - ats_scorer - Starting ATS scoring for resume Uploads\ATS_Resume_John_Doe.pdf against job title 'Full Stack Software Engineer'
+2025-07-25 12:21:56,643 - INFO - ats_scorer - Resume skills: ['react', 'java', 'dev-ops', 'presentations', 'full stack', 'sql', 'github', 'mongodb', 'full-stack', 'ci/cd']...
+2025-07-25 12:21:56,651 - INFO - ats_scorer - JD skills: ['react', 'java', 'workflows', 'dev-ops', 'full stack', 'idealization', 'sql', 'mongodb', 'full-stack', 'ci/cd']...
+2025-07-25 12:22:14,058 - INFO - ats_scorer - Matched skills: ['react', 'java', 'dev-ops', 'presentations', 'full stack', 'sql', 'mongodb', 'full-stack', 'ci/cd', 'fullstack']..., Missing skills: ['workflows', 'idealization', 'web deployment']..., Skill score: 100.0
+2025-07-25 12:22:14,067 - INFO - ats_scorer - Parsed experience dates: []
+2025-07-25 12:22:14,072 - INFO - ats_scorer - Parsed experience dates: []
+2025-07-25 12:22:16,092 - INFO - ats_scorer - Experience score: 80, Overlap: False, Role similarity: 0.8543322682380676
+2025-07-25 12:22:17,709 - INFO - ats_scorer - Detected sections: {'skills': 40, 'experience': 30, 'education': 20, 'certifications': 10}, Section score: 120
+2025-07-25 12:22:18,481 - INFO - ats_scorer - Formatting score: 85, Issues: ['Use 1-inch margins for consistent ATS parsing.']
+2025-07-25 12:22:18,609 - INFO - ats_scorer - Matched keywords: ['applications', 'engineer', 'python'], Missing keywords: ['stack', 'job', 'stack software', 'software', 'software engineer'], Density score: 40
+2025-07-25 12:22:18,623 - INFO - ats_scorer - File format score: 100, Issues: []
+2025-07-25 12:22:18,839 - INFO - ats_scorer - ATS scoring completed in 35.61s: total_score=130.75, skill_match=100.00, matched_keywords=['applications', 'engineer', 'python']
+2025-07-25 12:22:19,040 - INFO - _internal - 127.0.0.1 - - [25/Jul/2025 12:22:19] "POST /resume-enhancer HTTP/1.1" 200 -
+2025-07-25 12:22:38,281 - INFO - _internal - 127.0.0.1 - - [25/Jul/2025 12:22:38] "GET /resume-enhancer HTTP/1.1" 200 -
+2025-07-25 12:22:55,659 - INFO - routes - Extracted resume text: Header
+------
+Resume - John Doe
+John Doe
+Email: john.doe@example.com | Phone: (123) 456-7890 | Linke...
+2025-07-25 12:23:22,551 - INFO - ats_scorer - Starting ATS scoring for resume Uploads\ATS_Resume_John_Doe.pdf against job title 'data scientist'
+2025-07-25 12:23:22,553 - INFO - ats_scorer - Resume skills: ['react', 'java', 'dev-ops', 'presentations', 'full stack', 'sql', 'github', 'mongodb', 'full-stack', 'ci/cd']...
+2025-07-25 12:23:22,554 - INFO - ats_scorer - JD skills: ['personalization', 'writing']...
+2025-07-25 12:23:22,932 - INFO - ats_scorer - Matched skills: ['react', 'java', 'presentations', 'python', 'platformic', 'sql', 'spring', 'ansible', 'jenkins']..., Missing skills: ['personalization', 'writing']..., Skill score: 77.56410256410257
+2025-07-25 12:23:22,936 - INFO - ats_scorer - Parsed experience dates: []
+2025-07-25 12:23:22,937 - INFO - ats_scorer - Parsed experience dates: []
+2025-07-25 12:23:23,385 - INFO - ats_scorer - Experience score: 80, Overlap: False, Role similarity: 0.8251765966415405
+2025-07-25 12:23:24,265 - INFO - ats_scorer - Detected sections: {'skills': 40, 'experience': 30, 'education': 20, 'certifications': 10}, Section score: 120
+2025-07-25 12:23:24,497 - INFO - ats_scorer - Formatting score: 85, Issues: ['Use 1-inch margins for consistent ATS parsing.']
+2025-07-25 12:23:24,508 - INFO - ats_scorer - Matched keywords: ['developer', 'header'], Missing keywords: ['job', 'team', 'programming', 'willing', 'code'], Density score: 100
+2025-07-25 12:23:24,519 - INFO - ats_scorer - File format score: 100, Issues: []
+2025-07-25 12:23:24,663 - INFO - ats_scorer - ATS scoring completed in 2.11s: total_score=119.78, skill_match=77.56, matched_keywords=['developer', 'header']
+2025-07-25 12:23:24,677 - INFO - _internal - 127.0.0.1 - - [25/Jul/2025 12:23:24] "POST /resume-enhancer HTTP/1.1" 200 -
+2025-07-25 12:35:44,425 - INFO - _internal - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-25 12:35:44,426 - INFO - _internal - [33mPress CTRL+C to quit[0m
+2025-07-25 12:35:44,436 - INFO - _internal -  * Restarting with stat
+2025-07-25 12:36:31,900 - WARNING - _internal -  * Debugger is active!
+2025-07-25 12:36:31,924 - INFO - _internal -  * Debugger PIN: 978-289-098
+2025-07-25 12:36:33,767 - INFO - _internal - 127.0.0.1 - - [25/Jul/2025 12:36:33] "GET / HTTP/1.1" 200 -
+2025-07-25 12:37:45,761 - INFO - _internal - 127.0.0.1 - - [25/Jul/2025 12:37:45] "GET /resume-enhancer HTTP/1.1" 200 -
+2025-07-25 12:38:00,556 - INFO - routes - Extracted resume text: Header
+------
+Resume - John Doe
+John Doe
+Email: john.doe@example.com | Phone: (123) 456-7890 | Linke...
+2025-07-25 12:38:37,205 - INFO - ats_scorer - Starting ATS scoring for Uploads\ATS_Resume_John_Doe.pdf against 'Full Stack Software Engineer'
+2025-07-25 12:40:04,476 - INFO - ats_scorer - Skill score: 100.00, Matched: ['node.js', 'devops', 'ansible', 'mongodb', 'mysql'], Missing: ['idealization', 'web deployment', 'workflows'], Total weight: 1.5
+2025-07-25 12:40:04,947 - INFO - ats_scorer - Parsed dates: []
+2025-07-25 12:40:04,949 - INFO - ats_scorer - Parsed dates: []
+2025-07-25 12:40:08,483 - INFO - ats_scorer - Experience score: 40.00, Overlap years: 0, Role similarity: 0.75
+2025-07-25 12:40:17,382 - INFO - ats_scorer - Sections detected: {'skills': 40, 'experience': 30, 'education': 20}, Score: 90
+2025-07-25 12:40:18,013 - INFO - ats_scorer - Formatting score: 90, Issues: ['Use 1-inch margins.']
+2025-07-25 12:40:18,151 - INFO - ats_scorer - Keyword density: 1.02%, Score: 50.76, Matched: ['applications', 'engineer'], Missing: ['stack', 'job', 'stack software', 'software', 'software engineer']
+2025-07-25 12:40:18,160 - INFO - ats_scorer - File format score: 100, Issues: []
+2025-07-25 12:40:20,813 - INFO - ats_scorer - ATS scoring completed in 103.60s: total_score=74.95, skill_match=100.00, experience=40.00, section=90.00, formatting=90.00, job_title=39.27, keyword_density=50.76, file_format=100.00
+2025-07-25 12:40:21,167 - INFO - _internal - 127.0.0.1 - - [25/Jul/2025 12:40:21] "POST /resume-enhancer HTTP/1.1" 200 -
+2025-07-25 13:10:08,950 - INFO - _internal - 127.0.0.1 - - [25/Jul/2025 13:10:08] "GET / HTTP/1.1" 200 -
+2025-07-25 13:10:09,491 - INFO - _internal - 127.0.0.1 - - [25/Jul/2025 13:10:09] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-25 14:55:16,835 - INFO - _internal - 127.0.0.1 - - [25/Jul/2025 14:55:16] "GET /resume-enhancer HTTP/1.1" 200 -
+2025-07-25 14:55:35,720 - INFO - routes - Extracted resume text: Header
+------
+Resume - John Doe (Low ATS)
+John Doe
+Email: john.doe@example.com | Phone: (123) 456-78...
+2025-07-25 14:56:10,479 - INFO - ats_scorer - Starting ATS scoring for Uploads\ATS_Resume_John_Doe_Low.pdf against 'data scientist'
+2025-07-25 14:56:33,097 - INFO - ats_scorer - Skill score: 0.00, Matched: [], Missing: ['personalization', 'writing'], Total weight: 0
+2025-07-25 14:56:33,402 - INFO - ats_scorer - Parsed dates: []
+2025-07-25 14:56:33,405 - INFO - ats_scorer - Parsed dates: []
+2025-07-25 14:56:37,013 - INFO - ats_scorer - Experience score: 40.00, Overlap years: 0, Role similarity: 0.79
+2025-07-25 14:56:49,257 - INFO - ats_scorer - Sections detected: {'skills': 40, 'experience': 30, 'education': 20}, Score: 90
+2025-07-25 14:56:49,633 - INFO - ats_scorer - Formatting score: 90, Issues: ['Use 1-inch margins.']
+2025-07-25 14:56:49,769 - INFO - ats_scorer - Keyword density: 0.00%, Score: 0.00, Matched: [], Missing: ['job', 'developer', 'programming', 'team']
+2025-07-25 14:56:49,782 - INFO - ats_scorer - File format score: 100, Issues: []
+2025-07-25 14:56:54,699 - INFO - ats_scorer - ATS scoring completed in 44.22s: total_score=37.16, skill_match=0.00, experience=40.00, section=90.00, formatting=90.00, job_title=26.55, keyword_density=0.00, file_format=100.00
+2025-07-25 14:56:55,079 - INFO - _internal - 127.0.0.1 - - [25/Jul/2025 14:56:55] "POST /resume-enhancer HTTP/1.1" 200 -
+2025-07-25 15:19:20,401 - INFO - _internal - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-25 15:19:20,403 - INFO - _internal - [33mPress CTRL+C to quit[0m
+2025-07-25 15:19:20,412 - INFO - _internal -  * Restarting with stat
+2025-07-25 15:20:09,284 - WARNING - _internal -  * Debugger is active!
+2025-07-25 15:20:09,304 - INFO - _internal -  * Debugger PIN: 978-289-098
+2025-07-25 15:20:15,281 - INFO - _internal - 127.0.0.1 - - [25/Jul/2025 15:20:15] "GET / HTTP/1.1" 200 -
+2025-07-25 15:20:15,961 - INFO - _internal - 127.0.0.1 - - [25/Jul/2025 15:20:15] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-25 15:20:17,771 - INFO - _internal - 127.0.0.1 - - [25/Jul/2025 15:20:17] "GET /resume-enhancer HTTP/1.1" 200 -
+2025-07-25 15:20:38,793 - INFO - routes - Extracted resume text: Header
+------
+Resume - John Doe
+John Doe
+Email: john.doe@example.com | Phone: (123) 456-7890 | Linke...
+2025-07-25 15:21:31,883 - INFO - ats_scorer - Starting ATS scoring for Uploads\ATS_Resume_John_Doe.pdf against 'Full Stack Software Engineer'
+2025-07-25 15:23:08,197 - INFO - ats_scorer - Skill score: 100.00, Matched: ['react.js', 'web applications', 'django', 'devops', 'jenkins'], Missing: ['idealization', 'web deployment', 'workflows'], Total weight: 1.5
+2025-07-25 15:23:08,492 - INFO - ats_scorer - Parsed dates: []
+2025-07-25 15:23:08,505 - INFO - ats_scorer - Parsed dates: []
+2025-07-25 15:23:12,902 - INFO - ats_scorer - Experience score: 40.00, Overlap years: 0, Role similarity: 0.75
+2025-07-25 15:23:26,027 - INFO - ats_scorer - Sections detected: {'skills': 40, 'experience': 30, 'education': 20}, Score: 90
+2025-07-25 15:23:27,349 - INFO - ats_scorer - Formatting score: 90, Issues: ['Use 1-inch margins.']
+2025-07-25 15:23:27,763 - INFO - ats_scorer - Keyword density: 1.02%, Score: 50.76, Matched: ['applications', 'engineer'], Missing: ['stack', 'job', 'stack software', 'software', 'software engineer']
+2025-07-25 15:23:27,789 - INFO - ats_scorer - File format score: 100, Issues: []
+2025-07-25 15:23:38,559 - INFO - ats_scorer - ATS scoring completed in 126.67s: total_score=74.95, skill_match=100.00, experience=40.00, section=90.00, formatting=90.00, job_title=39.27, keyword_density=50.76, file_format=100.00
+2025-07-25 15:23:39,887 - INFO - _internal - 127.0.0.1 - - [25/Jul/2025 15:23:39] "POST /resume-enhancer HTTP/1.1" 200 -
+2025-07-25 15:27:16,085 - INFO - _internal - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-25 15:27:16,087 - INFO - _internal - [33mPress CTRL+C to quit[0m
+2025-07-25 15:27:16,097 - INFO - _internal -  * Restarting with stat
+2025-07-25 15:27:57,803 - WARNING - _internal -  * Debugger is active!
+2025-07-25 15:27:57,825 - INFO - _internal -  * Debugger PIN: 978-289-098
+2025-07-25 15:27:59,673 - INFO - _internal - 127.0.0.1 - - [25/Jul/2025 15:27:59] "GET / HTTP/1.1" 200 -
+2025-07-25 15:27:59,721 - INFO - _internal - 127.0.0.1 - - [25/Jul/2025 15:27:59] "GET / HTTP/1.1" 200 -
+2025-07-25 15:28:04,338 - INFO - _internal - 127.0.0.1 - - [25/Jul/2025 15:28:04] "GET /resume-enhancer HTTP/1.1" 200 -
+2025-07-25 15:28:20,196 - INFO - routes - Extracted resume text: Header
+------
+Resume - John Doe
+John Doe
+Email: john.doe@example.com | Phone: (123) 456-7890 | Linke...
+2025-07-25 15:29:17,349 - INFO - ats_scorer - Starting ATS scoring for Uploads\ATS_Resume_John_Doe.pdf against 'Full Stack Software Engineer'
+2025-07-25 15:31:25,403 - INFO - ats_scorer - Skill score: 100.00, Matched: ['git flow', 'mysql', 'django', 'jenkins', 'ci/cd'], Missing: ['idealization', 'web deployment', 'workflows'], Total weight: 1.5
+2025-07-25 15:31:25,681 - INFO - ats_scorer - Parsed dates: []
+2025-07-25 15:31:25,683 - INFO - ats_scorer - Parsed dates: []
+2025-07-25 15:31:29,998 - INFO - ats_scorer - Experience score: 40.00, Overlap years: 0, Role similarity: 0.75
+2025-07-25 15:31:43,358 - INFO - ats_scorer - Sections detected: {'skills': 40, 'experience': 30, 'education': 20}, Score: 90
+2025-07-25 15:31:44,122 - INFO - ats_scorer - Formatting score: 90, Issues: ['Use 1-inch margins.']
+2025-07-25 15:31:44,265 - INFO - ats_scorer - Keyword density: 1.02%, Score: 50.76, Matched: ['applications', 'engineer'], Missing: ['stack', 'job', 'stack software', 'software', 'software engineer']
+2025-07-25 15:31:44,277 - INFO - ats_scorer - File format score: 100, Issues: []
+2025-07-25 15:31:52,792 - INFO - ats_scorer - ATS scoring completed in 155.43s: total_score=74.95, skill_match=100.00, experience=40.00, section=90.00, formatting=90.00, job_title=39.27, keyword_density=50.76, file_format=100.00
+2025-07-25 15:31:53,616 - INFO - _internal - 127.0.0.1 - - [25/Jul/2025 15:31:53] "POST /resume-enhancer HTTP/1.1" 200 -
+2025-07-25 15:39:09,673 - INFO - _internal - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-25 15:39:09,675 - INFO - _internal - [33mPress CTRL+C to quit[0m
+2025-07-25 15:39:09,685 - INFO - _internal -  * Restarting with stat
+2025-07-25 15:39:51,761 - WARNING - _internal -  * Debugger is active!
+2025-07-25 15:39:51,779 - INFO - _internal -  * Debugger PIN: 978-289-098
+2025-07-25 15:39:53,099 - INFO - _internal - 127.0.0.1 - - [25/Jul/2025 15:39:53] "GET / HTTP/1.1" 200 -
+2025-07-25 15:39:53,137 - INFO - _internal - 127.0.0.1 - - [25/Jul/2025 15:39:53] "GET / HTTP/1.1" 200 -
+2025-07-25 15:40:15,312 - INFO - _internal - 127.0.0.1 - - [25/Jul/2025 15:40:15] "GET /resume-enhancer HTTP/1.1" 200 -
+2025-07-25 15:40:28,389 - INFO - routes - Extracted resume text: Header
+------
+Resume - John Doe
+John Doe
+Email: john.doe@example.com | Phone: (123) 456-7890 | Linke...
+2025-07-25 15:41:07,776 - INFO - ats_scorer - Starting ATS scoring for Uploads\ATS_Resume_John_Doe.pdf against 'Full Stack Software Engineer'
+2025-07-25 15:42:40,726 - INFO - ats_scorer - Skill score: 100.00, Matched: ['web development', 'web applications', 'node.js', 'jenkins', 'mysql'], Missing: ['idealization', 'web deployment', 'workflows'], Total weight: 1.5
+2025-07-25 15:42:40,977 - INFO - ats_scorer - Parsed dates: []
+2025-07-25 15:42:40,978 - INFO - ats_scorer - Parsed dates: []
+2025-07-25 15:42:46,954 - INFO - ats_scorer - Experience score: 40.00, Overlap years: 0, Role similarity: 0.75
+2025-07-25 15:42:58,882 - INFO - ats_scorer - Sections detected: {'skills': 40, 'experience': 30, 'education': 20}, Score: 90
+2025-07-25 15:42:59,557 - INFO - ats_scorer - Formatting score: 90, Issues: ['Use 1-inch margins.']
+2025-07-25 15:42:59,755 - INFO - ats_scorer - Keyword density: 1.02%, Score: 50.76, Matched: ['applications', 'engineer'], Missing: ['stack', 'job', 'stack software', 'software', 'software engineer']
+2025-07-25 15:42:59,774 - INFO - ats_scorer - File format score: 100, Issues: []
+2025-07-25 15:43:08,558 - INFO - ats_scorer - ATS scoring completed in 120.78s: total_score=74.95, skill_match=100.00, experience=40.00, section=90.00, formatting=90.00, job_title=39.27, keyword_density=50.76, file_format=100.00
+2025-07-25 15:43:09,192 - INFO - _internal - 127.0.0.1 - - [25/Jul/2025 15:43:09] "POST /resume-enhancer HTTP/1.1" 200 -
+2025-07-25 16:08:01,753 - INFO - _internal - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-25 16:08:01,755 - INFO - _internal - [33mPress CTRL+C to quit[0m
+2025-07-25 16:08:01,762 - INFO - _internal -  * Restarting with stat
+2025-07-25 16:08:44,148 - WARNING - _internal -  * Debugger is active!
+2025-07-25 16:08:44,176 - INFO - _internal -  * Debugger PIN: 978-289-098
+2025-07-25 16:16:20,903 - INFO - _internal - 127.0.0.1 - - [25/Jul/2025 16:16:20] "GET / HTTP/1.1" 200 -
+2025-07-25 16:16:23,701 - INFO - _internal - 127.0.0.1 - - [25/Jul/2025 16:16:23] "GET /resume-enhancer HTTP/1.1" 200 -
+2025-07-25 16:16:39,651 - INFO - routes - Extracted resume text: Header
+------
+Resume - John Doe
+John Doe
+Email: john.doe@example.com | Phone: (123) 456-7890 | Linke...
+2025-07-25 16:17:18,006 - INFO - ats_scorer - Starting ATS scoring for Uploads\ATS_Resume_John_Doe.pdf against 'Full Stack Software Engineer'
+2025-07-25 16:18:41,123 - INFO - ats_scorer - Skill score: 100.00, Matched: ['jenkins', 'full stack', 'mysql', 'git flow', 'devops'], Missing: ['idealization', 'web deployment', 'workflows'], Total weight: 1.5
+2025-07-25 16:18:41,366 - INFO - ats_scorer - Parsed dates: []
+2025-07-25 16:18:41,367 - INFO - ats_scorer - Parsed dates: []
+2025-07-25 16:18:44,305 - INFO - ats_scorer - Experience score: 40.00, Overlap years: 0, Role similarity: 0.75
+2025-07-25 16:18:52,508 - INFO - ats_scorer - Sections detected: {'skills': 40, 'experience': 30, 'education': 20}, Score: 90
+2025-07-25 16:18:53,048 - INFO - ats_scorer - Formatting score: 90, Issues: ['Use 1-inch margins.']
+2025-07-25 16:18:53,192 - INFO - ats_scorer - Keyword density: 1.02%, Score: 50.76, Matched: ['applications', 'engineer'], Missing: ['stack', 'job', 'stack software', 'software', 'software engineer']
+2025-07-25 16:18:53,204 - INFO - ats_scorer - File format score: 100, Issues: []
+2025-07-25 16:19:01,052 - INFO - ats_scorer - ATS scoring completed in 103.02s: total_score=74.95, skill_match=100.00, experience=40.00, section=90.00, formatting=90.00, job_title=39.27, keyword_density=50.76, file_format=100.00
+2025-07-25 16:19:01,802 - INFO - _internal - 127.0.0.1 - - [25/Jul/2025 16:19:01] "POST /resume-enhancer HTTP/1.1" 200 -
+2025-07-25 16:21:36,484 - INFO - routes - Extracted resume text: Header
+------
+Resume - John Doe
+John Doe
+Email: john.doe@example.com | Phone: (123) 456-7890 | Linke...
+2025-07-25 16:22:26,676 - INFO - ats_scorer - Starting ATS scoring for Uploads\ATS_Resume_John_Doe.pdf against 'Full Stack Software Engineer'
+2025-07-25 16:24:04,035 - INFO - ats_scorer - Skill score: 100.00, Matched: ['jenkins', 'full stack', 'mysql', 'git flow', 'devops'], Missing: ['idealization', 'web deployment', 'workflows'], Total weight: 1.5
+2025-07-25 16:24:04,251 - INFO - ats_scorer - Parsed dates: []
+2025-07-25 16:24:04,251 - INFO - ats_scorer - Parsed dates: []
+2025-07-25 16:24:07,118 - INFO - ats_scorer - Experience score: 40.00, Overlap years: 0, Role similarity: 0.75
+2025-07-25 16:24:14,617 - INFO - ats_scorer - Sections detected: {'skills': 40, 'experience': 30, 'education': 20}, Score: 90
+2025-07-25 16:24:15,079 - INFO - ats_scorer - Formatting score: 90, Issues: ['Use 1-inch margins.']
+2025-07-25 16:24:15,145 - INFO - ats_scorer - Keyword density: 1.02%, Score: 50.76, Matched: ['applications', 'engineer'], Missing: ['stack', 'job', 'stack software', 'software', 'software engineer']
+2025-07-25 16:24:15,156 - INFO - ats_scorer - File format score: 100, Issues: []
+2025-07-25 16:24:23,424 - INFO - ats_scorer - ATS scoring completed in 116.75s: total_score=74.95, skill_match=100.00, experience=40.00, section=90.00, formatting=90.00, job_title=39.27, keyword_density=50.76, file_format=100.00
+2025-07-25 16:24:24,275 - INFO - _internal - 127.0.0.1 - - [25/Jul/2025 16:24:24] "POST /resume-enhancer HTTP/1.1" 200 -
+2025-07-25 16:24:24,411 - INFO - _internal - 127.0.0.1 - - [25/Jul/2025 16:24:24] "[33mGET /cdn-cgi/challenge-platform/scripts/jsd/main.js HTTP/1.1[0m" 404 -
+2025-07-25 16:26:15,607 - INFO - _internal -  * Detected change in 'C:\\Users\\lamic\\Desktop\\Project\\appe\\ats_scorer.py', reloading
+2025-07-25 16:26:33,167 - INFO - _internal -  * Restarting with stat

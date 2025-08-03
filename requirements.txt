@@ -1,0 +1,6 @@
+Flask
+python-docx
+PyPDF2
+spacy
+scikit-learn
+sentence-transformers==2.2.2

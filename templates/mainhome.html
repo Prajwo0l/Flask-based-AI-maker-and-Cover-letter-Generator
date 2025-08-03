@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Toolkit</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f4f6f9;
+            color: #333;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #1a1a1a;
+        }
+
+        p {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: #fff;
+            padding: 25px 30px;
+            margin: 20px;
+            width: 100%;
+            max-width: 400px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .card h2 {
+            font-size: 1.5rem;
+            color: #222;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        .card a {
+            display: inline-block;
+            padding: 10px 18px;
+            background: #0056b3;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: background 0.3s ease;
+        }
+
+        .card a:hover {
+            background: #004494;
+        }
+
+        @media (max-width: 500px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Resume Toolkit</h1>
+    <p>Your all-in-one solution for job applications</p>
+    
+    <div class="card">
+        <h2>Register</h2>
+        <p>Create an account to access all features.</p>
+        <a href="{{ url_for('main.register') }}">Register</a>
+    </div>
+
+    <div class="card">
+        <h2>Login</h2>
+        <p>Log in to your account to continue.</p>
+        <a href="{{ url_for('main.login') }}">Login</a>
+    </div>
+</body>
+</html>

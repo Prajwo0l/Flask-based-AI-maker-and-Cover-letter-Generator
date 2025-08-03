@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Your Professional Resume</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f5f7fa;
+            margin: 0;
+            padding: 30px 15px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .form-container {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+            width: 100%;
+            max-width: 800px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            color: #222;
+        }
+
+        label {
+            display: block;
+            margin-top: 18px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="url"],
+        input[type="number"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 6px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 1rem;
+            background-color: #fff;
+            resize: vertical;
+        }
+
+        textarea {
+            min-height: 80px;
+        }
+
+        button[type="submit"] {
+            display: block;
+            margin-top: 25px;
+            background-color: #0056b3;
+            color: white;
+            border: none;
+            padding: 14px;
+            width: 100%;
+            font-size: 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #004494;
+        }
+
+        .error {
+            margin-top: 15px;
+            color: red;
+            text-align: center;
+        }
+
+        @media (max-width: 600px) {
+            .form-container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Create Your Professional Resume</h1>
+
+        <form method="POST" action="{{ url_for('main.create_resume') }}">
+            <label>Full Name:</label>
+            <input type="text" name="name" required>
+
+            <label>Email:</label>
+            <input type="email" name="email" required>
+
+            <label>Phone:</label>
+            <input type="tel" name="phone" required>
+
+            <label>Location (City, Country):</label>
+            <input type="text" name="location">
+
+            <label>LinkedIn Profile (URL):</label>
+            <input type="url" name="linkedin">
+
+            <label>Job Title:</label>
+            <input type="text" name="job_title" required>
+
+            <label>Years of Experience:</label>
+            <input type="number" name="experience_years" required>
+
+            <label>Skills (comma-separated):</label>
+            <input type="text" name="skills" required>
+
+            <label>Work Experience (one entry per line):</label>
+            <textarea name="experience" placeholder="e.g., Software Engineer - Google - 2020-2022 - Developed features;Led team"></textarea>
+
+            <label>Education (e.g., Degree - University - Dates - Honors):</label>
+            <textarea name="education"></textarea>
+
+            <label>Projects (one per block):</label>
+            <textarea name="projects" placeholder="e.g., Project Name - Language - Description - Link"></textarea>
+
+            <label>Certifications (e.g., Certification Name - Details;Details):</label>
+            <textarea name="certifications"></textarea>
+
+            <label>Achievements (one per line):</label>
+            <textarea name="achievements"></textarea>
+
+            <label>Hobbies/Interests (comma-separated):</label>
+            <input type="text" name="hobbies">
+
+            <button type="submit">Create Resume</button>
+        </form>
+
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>

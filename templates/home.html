@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Toolkit</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Resume Toolkit</h1>
+        <p>Your all-in-one solution for job applications</p>
+    </header>
+    <main>
+        <div class="card">
+            <h2>Resume Enhancement</h2>
+            <p>Upload your resume and job description to analyze ATS compatibility, skill gaps, and visualize scores.</p>
+            <a href="/resume-enhancer" class="button">Start Resume Enhancement</a>
+        </div>
+        <div class="card">
+            <h2>Cover Letter Generator</h2>
+            <p>Create a tailored cover letter for your job application.</p>
+            <a href="/cover-letter-generator" class="button">Generate Cover Letter</a>
+        </div>
+        <div class="card">
+            <h2>AI Powered Resume Builder</h2>
+            <p>Build a professional resume from scratch with AI assistance.</p>
+            <a href="{{ url_for('main.create_resume') }}" class="button">Create Resume</a>
+        </div>
+    </main>
+</body>
+</html>

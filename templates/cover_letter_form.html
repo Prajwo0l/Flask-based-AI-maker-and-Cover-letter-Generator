@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cover Letter Generator</title>
+
+    <!-- Modern font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(to bottom right, #f4f7fc, #e0e7ef);
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .form-container {
+            background: white;
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 32px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+        }
+
+        label {
+            display: block;
+            margin-top: 16px;
+            font-weight: 500;
+            color: #34495e;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 10px 12px;
+            margin-top: 6px;
+            font-size: 15px;
+            border: 1px solid #d1d9e6;
+            border-radius: 8px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.15);
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        button {
+            margin-top: 24px;
+            width: 100%;
+            padding: 12px;
+            background-color: #3498db;
+            color: white;
+            font-size: 16px;
+            font-weight: 500;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        .error {
+            color: #e74c3c;
+            text-align: center;
+            margin-top: 16px;
+            font-weight: 500;
+        }
+
+        @media (max-width: 480px) {
+            .form-container {
+                padding: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Generate Cover Letter</h1>
+
+    <div class="form-container">
+        <form method="POST" action="{{ url_for('main.generate_cover_letter') }}">
+            <label for="applicant_name">Applicant Name:</label>
+            <input type="text" id="applicant_name" name="applicant_name" value="{{ form_data.applicant_name }}" required>
+
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" value="{{ form_data.address }}">
+
+            <label for="phone">Phone:</label>
+            <input type="text" id="phone" name="phone" value="{{ form_data.phone }}">
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" value="{{ form_data.email }}">
+
+            <label for="job_title">Job Title:</label>
+            <input type="text" id="job_title" name="job_title" value="{{ form_data.job_title }}" required>
+
+            <label for="company">Company Name:</label>
+            <input type="text" id="company" name="company" value="{{ form_data.company }}" required>
+
+            <label for="recruiter">Recruiter Name:</label>
+            <input type="text" id="recruiter" name="recruiter" value="{{ form_data.recruiter }}">
+
+            <label for="company_address">Company Address:</label>
+            <input type="text" id="company_address" name="company_address" value="{{ form_data.company_address }}">
+
+            <label for="experience">Project Experience:</label>
+            <textarea id="experience" name="experience" rows="5" required>{{ form_data.experience }}</textarea>
+
+            <label for="skills">Skills (comma-separated):</label>
+            <input type="text" id="skills" name="skills" value="{{ form_data.skills }}">
+
+            <label for="template_choice">Template Style:</label>
+            <select id="template_choice" name="template_choice">
+                {% for style in template_styles %}
+                    <option value="{{ style }}" {% if form_data.template_choice == style %}selected{% endif %}>{{ style }}</option>
+                {% endfor %}
+            </select>
+
+            <button type="submit">Generate Cover Letter</button>
+        </form>
+
+        {% if error_message %}
+            <p class="error">{{ error_message }}</p>
+        {% endif %}
+    </div>
+
+</body>
+</html>

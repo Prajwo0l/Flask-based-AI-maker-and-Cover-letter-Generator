@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resume Optimization Results</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1, h2 { color: #333; }
+        .suggestion { background-color: #FFCE56; padding: 2px; cursor: pointer; }
+        .suggestion:hover { background-color: #FFD700; }
+        pre { white-space: pre-wrap; border: 1px solid #ccc; padding: 10px; background: #f9f9f9; }
+        a { color: #007bff; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <h1>Resume Optimization Results</h1>
+
+    <h2>Optimized Resume Preview</h2>
+    <pre id="optimized-resume">{{ optimized_resume | safe }}</pre>
+
+    <h2>Suggestions Applied</h2>
+    <ul>
+        {% for suggestion in suggestions %}
+            <li>{{ suggestion }}</li>
+        {% endfor %}
+        {% if not suggestions %}
+            <li>No suggestions applied. Your resume is well-aligned with the job description.</li>
+        {% endif %}
+    </ul>
+
+    <h2>Job Description</h2>
+    <pre>{{ jd_text | safe }}</pre>
+
+    <a href="{{ url_for('main.resume_enhancer') }}">Back to Resume Enhancer</a>
+
+    <script>
+        document.querySelectorAll('.suggestion').forEach(elem => {
+            elem.addEventListener('click', () => {
+                if (confirm('Accept this suggestion?')) {
+                    elem.classList.remove('suggestion');
+                    elem.style.backgroundColor = 'transparent';
+                    elem.textContent = elem.textContent.replace(/\[SUGGESTED: Add (.*?)\]/, '$1');
+                } else {
+                    elem.remove();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
